@@ -35,10 +35,10 @@ public class InimeneValidator {
 
 
 
-
+/*
 		if (i.getBday() != null && i.getBday().compareTo(new SimpleDateFormat("yyyy-MM-d")))
 			errors.put("inimene_bDay", "kuupäev on vales formaadis, peaks olema YYYY-MM-DD (näiteks 2012/10/19)");
-
+*/
 
 		if (!errors.isEmpty()) {
 			log.warn("Validation failed: " + errors);

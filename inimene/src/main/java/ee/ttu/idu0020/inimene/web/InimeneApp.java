@@ -123,7 +123,7 @@ public class InimeneApp extends HttpServlet {
 				i.setName1(getName1(req));
 				i.setName2(getName2(req));
 				i.setNumber(getNumber(req));
-				i.setBday(getBday(req));
+//				i.setBday(getBday(req));
 				InimeneDAO dao = new InimeneDAO(DBConnection.getConnection());
 
 				InimeneValidator v = new InimeneValidator();
@@ -155,7 +155,7 @@ public class InimeneApp extends HttpServlet {
 				i.setName1(getName1(req));
 				i.setName2(getName2(req));
 				i.setNumber(getNumber(req));
-				i.setBday(getBday(req));
+//				i.setBday(getBday(req));
 
 				InimeneValidator v = new InimeneValidator();
 				Map<String, String> errors = v.validate(i);
@@ -215,6 +215,7 @@ public class InimeneApp extends HttpServlet {
 		}
 	}
 
+/*
 	private Date getBday(HttpServletRequest req) {
 		String inimene_bday = req.getParameter("inimene_bday");
 
@@ -230,5 +231,6 @@ public class InimeneApp extends HttpServlet {
 			return null;
 		}
 	}
+*/
 
 }

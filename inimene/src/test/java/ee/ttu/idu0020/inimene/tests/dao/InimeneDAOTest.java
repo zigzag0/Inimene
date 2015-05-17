@@ -1,7 +1,6 @@
 package ee.ttu.idu0020.inimene.tests.dao;
 
 
-import java.sql.Date;
 import java.util.List;
 import org.junit.After;
 import org.junit.Assert;
@@ -35,7 +34,7 @@ public class InimeneDAOTest {
         i.setName1("xxx");
         i.setName2("yyy");
         i.setNumber(25);
-        i.setBday(new Date("10/12/2013"));
+//       i.setBday(new Date("10/12/2013"));
         dao.addInimene(i);
 
         List<Inimene> inimesed2 = dao.getInimesed();
@@ -54,7 +53,7 @@ public class InimeneDAOTest {
         i.setName1("xxx");
         i.setName2("yyy");
         i.setNumber(25);
-        i.setBday(new Date("10/12/2013"));
+//        i.setBday(new Date("10/12/2013"));
 
         dao.addInimene(i);
 
@@ -68,7 +67,7 @@ public class InimeneDAOTest {
         Assert.assertEquals(i.getName1(), i2.getName1());
         Assert.assertEquals(i.getName2(), i2.getName2());
         Assert.assertEquals(i.getNumber(), i2.getNumber());
-        Assert.assertEquals(i.getBday(), i2.getBday());
+//        Assert.assertEquals(i.getBday(), i2.getBday());
     }
 
     @Test
@@ -80,13 +79,13 @@ public class InimeneDAOTest {
         i.setName1("xxx");
         i.setName2("yyy");
         i.setNumber(25);
-        i.setBday(new Date("10/12/2013"));
+//        i.setBday(new Date("10/12/2013"));
         dao.addInimene(i);
 
         i.setName1("www");
         i.setName2("zzz");
         i.setNumber(55);
-        i.setBday(null);
+//        i.setBday(null);
         dao.updateInimene(i);
 
         Inimene i2 = dao.getInimene(i.getId());
@@ -97,7 +96,7 @@ public class InimeneDAOTest {
         Assert.assertEquals(i.getName1(), i2.getName1());
         Assert.assertEquals(i.getName2(), i2.getName2());
         Assert.assertEquals(i.getNumber(), i2.getNumber());
-        Assert.assertEquals(i.getBday(), i2.getBday());
+//       Assert.assertEquals(i.getBday(), i2.getBday());
     }
 
 }
