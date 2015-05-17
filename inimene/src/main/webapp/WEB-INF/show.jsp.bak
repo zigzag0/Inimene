@@ -1,0 +1,23 @@
+<%@ page import="ee.ttu.idu0020.inimene.Inimene" %> 
+<jsp:useBean id="inimesed" scope="request" type="java.util.List<Inimene>" />
+<html>
+<body>
+<h1>Tooners</h1>
+<br>
+
+<table>
+<tr>
+    <th>Brand</th><th>Model</th><th>Yield</th><th>Price</th>
+</tr>
+<% 
+for(Inimene t: inimesed) {
+%>
+    <tr>
+        <td><%= t.getName1() %></td><td><%= t.getName2() %></td><td><%= t.getNumber() %></td><td><%= t.getBday() %></td>
+    </tr>
+<%
+}
+ %>
+</table>
+</body>
+</html>
