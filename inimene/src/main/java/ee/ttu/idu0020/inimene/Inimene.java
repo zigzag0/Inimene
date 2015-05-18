@@ -42,7 +42,7 @@ public class Inimene {
 		this.inimene_name2 = inimene_name2;
 	}
 
-/*
+
 	public Date getBday() {
 		return inimene_bday;
 	}
@@ -50,5 +50,5 @@ public class Inimene {
 	public void setBday(Date inimene_bday) {
 		this.inimene_bday = inimene_bday;
 	}
-*/
+
 }

@@ -1,12 +1,7 @@
 package ee.ttu.idu0020.inimene;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.text.*;
-
 import org.apache.log4j.Logger;
 
 public class InimeneValidator {
@@ -34,11 +29,9 @@ public class InimeneValidator {
 			errors.put("inimene_number", "järjekorra arv on liiga suur peab olema alla 1000");
 
 
-
-/*
 		if (i.getBday() != null && i.getBday().compareTo(new SimpleDateFormat("yyyy-MM-d")))
-			errors.put("inimene_bDay", "kuupäev on vales formaadis, peaks olema YYYY-MM-DD (näiteks 2012/10/19)");
-*/
+			errors.put("inimene_bDay", "kuupäev on vales formaadis, peaks olema YYYY-MM-DD (näiteks 2012-10-19)");
+
 
 		if (!errors.isEmpty()) {
 			log.warn("Validation failed: " + errors);

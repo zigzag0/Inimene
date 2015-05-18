@@ -1,7 +1,6 @@
 <%@ page import="ee.ttu.idu0020.inimene.Inimene"%>
-<jsp:useBean id="inimene" scope="request" type="Inimene" />
-<jsp:useBean id="errors" scope="request" type="java.util.Map<String,
-	String>" />
+<jsp:useBean id="inimene" scope="request" type="ee.ttu.idu0020.inimene.Inimene" />
+<jsp:useBean id="errors" scope="request" type="java.util.Map" />
 <html>
 <style>
 body {
@@ -33,7 +32,7 @@ a:hover {
 </style>
 <body>
 	<h1>
-		<a href=".">Home</a>
+		<a href=".">Tagasi kodulehele?</a>
 	</h1>
 	<br>
 	Lisa inimese:
@@ -65,13 +64,13 @@ a:hover {
 			</tr>
 
 			<tr>
-				<td>Sünniaeg:</td>
+				<td>Sunniaeg:</td>
 				<td><input type="text" name="inimene_bday"
 					value="<%= inimene.getBday() == null ? "" : inimene.getBday() %>" />
-					<<% if(errors.containsKey("inimene_bday")){%>
-						<font color="red"><%= errors.get("inimene_bday") %></font>
-					<%}%>/td>
+					<% if(errors.containsKey("inimene_bday")){%><font color="red"><%= errors.get("inimene_bday") %></font>
+					<%}%></td>
 			</tr>
+
 		</table>
 		<input type="submit" value="Salvesta andmed..." />
 	</form>

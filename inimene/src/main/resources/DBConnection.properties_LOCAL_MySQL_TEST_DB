@@ -1,11 +1,21 @@
+
+--MySQL Local
 driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://127.0.0.1:3306/name
 usr=get
 pwd=1234
 
 
+--PostgreSQL Local
+driver=org.postgresql.Driver
+url=jdbc:postgresql://127.0.0.1:5432/personaal
+usr=User
+pwd=User
 
+
+--PostgreSQL on IMBI
 driver=org.postgresql.Driver
 url=jdbc:postgresql://imbi.ld.ttu.ee:5432/t152102CTF_TMP
 usr=t152102CTF
 pwd=JI3Ejbjp
+

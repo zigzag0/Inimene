@@ -1,0 +1,26 @@
+
+
+--CREATE TABLE inimesed_v2
+--(
+--   id               NUMERIC (10, 0) DEFAULT nextval ('inimene_id'::regclass),
+--   inimene_number   integer,
+--   inimene_name1    CHARACTER VARYING (10),
+--   inimene_name2    CHARACTER VARYING (10),
+--   inimene_bday     date
+--)
+
+
+--INSERT INTO inimesed_v2 (inimene_number, inimene_name1, inimene_name2) VALUES (1, 'Jaanek', 'Piks'); --OK
+--INSERT INTO inimesed_v2 (inimene_number, inimene_name1, inimene_name2) VALUES (2, 'Huugo', 'Sol');  --OK
+--INSERT INTO inimesed_v2 (id, inimene_number, inimene_name1, inimene_name2, inimene_bday) VALUES (3, 3, 'Liis', 'Rruby', TO_DATE ('03/17/1998', 'MM/DD/YYYY'));  --??
+--COMMIT; --OK
+
+
+
+-- SELECT * FROM inimesed_v2 ORDER BY inimesed_v2.inimene_number;   --OK
+
+--INSERT INTO inimesed_v2( inimene_number, inimene_name1,inimene_name2) VALUES (7, 'Uus', 'Nimi' );  --OK
+
+--UPDATE inimesed_v2 SET inimene_number = 10, inimene_name1 = 'ldfjkjkfs', inimene_name2 = 'kkkkk' WHERE id = 24;
+
+-- DELETE FROM inimesed_v2 WHERE id = 3;  --OK

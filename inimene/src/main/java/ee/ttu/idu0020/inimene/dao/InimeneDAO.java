@@ -28,13 +28,12 @@ public class InimeneDAO {
 			while (rs.next()) {
 				Inimene i = new Inimene();
 				i.setId(rs.getLong("id"));
-				i.setNumber(rs.getObject("inimene_number") == null ? null : rs
-						.getInt("inimene_number"));
+				i.setNumber(rs.getObject("inimene_number") == null ? null : rs.getInt("inimene_number"));
 				i.setName1(rs.getString("inimene_name1"));
 				i.setName2(rs.getString("inimene_name2"));
 
-//				i.setBday(rs.getObject("inimene_bday") == null ? null : rs
-//						.getDate("inimene_bday"));
+				i.setBday(rs.getObject("inimene_bday") == null ? null : rs
+						.getDate("inimene_bday"));
 
 				inimesed.add(i);
 			}
@@ -43,6 +42,7 @@ public class InimeneDAO {
 		}
 
 		return inimesed;
+
 	}
 
 	public Inimene getInimene(long id) throws SQLException {
@@ -56,13 +56,12 @@ public class InimeneDAO {
 			if (rs.next()) {
 				Inimene i = new Inimene();
 				i.setId(rs.getLong("id"));
-				i.setNumber(rs.getObject("inimene_number") == null ? null : rs
-						.getInt("inimene_number"));
+				i.setNumber(rs.getObject("inimene_number") == null ? null : rs.getInt("inimene_number"));
 				i.setName1(rs.getString("inimene_name1"));
 				i.setName2(rs.getString("inimene_name2"));
 
-//				i.setBday(rs.getObject("inimene_bday") == null ? null : rs
-//						.getDate("inimene_bday"));
+				i.setBday(rs.getObject("inimene_bday") == null ? null : rs
+						.getDate("inimene_bday"));
 				return i;
 			}
 		} finally {
@@ -85,13 +84,13 @@ public class InimeneDAO {
 			} else {
 				pst.setInt(3, i.getNumber());
 			}
-/*
+
 			if (i.getBday() == null) {
 				pst.setNull(4, Types.DATE);
 			} else {
 				pst.setDate(4, i.getBday());
 			}
-*/
+
 			ResultSet rs = pst.executeQuery();
 			rs.next();
 			i.setId(rs.getLong(1));
@@ -114,12 +113,12 @@ public class InimeneDAO {
 			} else {
 				pst.setInt(3, i.getNumber());
 			}
-/*			if (i.getBday() == null) {
+			if (i.getBday() == null) {
 				pst.setNull(4, Types.DATE);
 			} else {
 				pst.setDate(4, i.getBday());
 			}
-*/
+
 			pst.setLong(5, i.getId());
 
 			pst.executeUpdate();

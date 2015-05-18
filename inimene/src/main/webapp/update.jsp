@@ -1,7 +1,7 @@
 <%@ page import="ee.ttu.idu0020.inimene.Inimene"%>
-<jsp:useBean id="inimene" scope="request" type="Inimene" />
-<jsp:useBean id="errors" scope="request" type="java.util.Map<String,
-	String>" />
+<jsp:useBean id="inimene" scope="request"
+	type="ee.ttu.idu0020.inimene.Inimene" />
+<jsp:useBean id="errors" scope="request" type="java.util.Map" />
 <html>
 <style>
 body {
@@ -46,28 +46,28 @@ a:hover {
 				<td><input type="text" name="inimene_number"
 					value="<%=inimene.getNumber() == null ? "" : inimene.getNumber()%>" />
 					<%
-						if(errors.containsKey("inimene_number")){
+						if (errors.containsKey("inimene_number")) {
 					%><font color="red"><%=errors.get("inimene_number")%></font> <%
-						}
-					%></td>
+ 	}
+ %></td>
 			</tr>
 			<tr>
 				<td>Ees nimi:</td>
 				<td><input type="text" name="inimene_name1"
 					value="<%=inimene.getName1()%>" /> <%
-						if(errors.containsKey("inimene_name1")){
-					%><font color="red"><%=errors.get("inimene_name1")%></font> <%
-						}
-					%></td>
+ 	if (errors.containsKey("inimene_name1")) {
+ %><font color="red"><%=errors.get("inimene_name1")%></font> <%
+ 	}
+ %></td>
 			</tr>
 			<tr>
 				<td>Perekonna nimi:</td>
 				<td><input type="text" name="inimene_name2"
 					value="<%=inimene.getName2()%>" /> <%
-						if(errors.containsKey("inimene_name2")){
-					%><font color="red"><%=errors.get("inimene_name2")%></font> <%
-						}
-					%></td>
+ 	if (errors.containsKey("inimene_name2")) {
+ %><font color="red"><%=errors.get("inimene_name2")%></font> <%
+ 	}
+ %></td>
 			</tr>
 
 			<tr>
@@ -75,12 +75,14 @@ a:hover {
 				<td><input type="text" name="inimene_bday"
 					value="<%=inimene.getBday() == null ? "" : inimene.getBday()%>" />
 					<%
-						if(errors.containsKey("inimene_bday")){
-					%><font color="red"><%=errors.get("inimene_bday")%></font> <%}%></td>
+						if (errors.containsKey("inimene_bday")) {
+					%><font color="red"><%=errors.get("inimene_bday")%></font> <%
+ 	}
+ %></td>
 			</tr>
 		</table>
 		<input type="submit" value="Salvesta andmed..." />
 	</form>
 
 </body>
-	</html>
+</html>

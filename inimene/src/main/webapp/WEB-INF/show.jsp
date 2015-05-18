@@ -7,13 +7,13 @@
 
 <table>
 <tr>
-    <th>Brand</th><th>Model</th><th>Yield</th><th>Price</th>
+    <th>Number</th><th>Nimi</th><th>Perekonnanimi</th><th>Sunniaeg</th>
 </tr>
 <%
 for(Inimene i: inimesed) {
 %>
     <tr>
-        <td><%= i.getName1() %></td><td><%= i.getName2() %></td><td><%= i.getNumber() %></td><td><%= i.getBday() %></td>
+        <td><%= i.getNumber() %></td><td><%= i.getName1() %></td><td><%= i.getName2() %></td><td><%= i.getBday() %></td>
     </tr>
 <%
 }

@@ -1,6 +1,5 @@
 <%@ page import="ee.ttu.idu0020.inimene.Inimene"%>
-<jsp:useBean id="inimesed" scope="request"
-	type="java.util.List<Inimene>" />
+<jsp:useBean id="inimesed" scope="request" type="java.util.List<Inimene>" />
 <html>
 <style>
 body {

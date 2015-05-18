@@ -13,27 +13,29 @@ import org.apache.log4j.Logger;
 
 public class DBFilter implements Filter {
 
-    private static final Logger log = Logger.getLogger(DBFilter.class);
+	private static final Logger log = Logger.getLogger(DBFilter.class);
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
 
-        DBConnection.initConnection();
-        try {
-            chain.doFilter(request, response);
-        } catch(Throwable i) {
-            log.error(i);
-            throw new ServletException(i);
-        } finally {
-            DBConnection.close();
-        }
-    }
+		DBConnection.initConnection();
+		try {
+			chain.doFilter(request, response);
+		} catch (Throwable t) {
+			log.error(t);
+			throw new ServletException(t);
+		} finally {
+			DBConnection.close();
+		}
 
-    @Override
-    public void init(FilterConfig cfg) throws ServletException {
-    }
+	}
 
-    @Override
-    public void destroy() {
-    }
+	@Override
+	public void init(FilterConfig cfg) throws ServletException {
+	}
+
+	@Override
+	public void destroy() {
+	}
 }
