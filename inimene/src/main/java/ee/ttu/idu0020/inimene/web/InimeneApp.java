@@ -1,12 +1,14 @@
 package ee.ttu.idu0020.inimene.web;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.DataFormatException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -222,10 +224,11 @@ public class InimeneApp extends HttpServlet {
 			return null;
 		}
 
-		try { // return new Date(inimene_bday); return (Date) new
-			SimpleDateFormat("yyyy-mm-dd").parse(inimene_bday);
+		try { // return new Date(inimene_bday);
+			return new SimpleDateFormat("yyyy-MM-dd").parse(inimene_bday);
 
-		} catch (NumberFormatException e) {
+		} catch (ParseException e) {
+
 			return null;
 		}
 	}

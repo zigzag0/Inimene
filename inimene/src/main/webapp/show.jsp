@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page import="ee.ttu.idu0020.inimene.Inimene"%>
 <jsp:useBean id="inimesed" scope="request" type="java.util.List<Inimene>" />
 <html>
@@ -55,7 +56,7 @@ a:hover {
 			<td><%=i.getNumber() == null ? "" : i.getNumber()%></td>
 			<td><%=i.getName1()%></td>
 			<td><%=i.getName2()%></td>
-			<td><%=i.getBday() == null ? "" : i.getBday()%></td>
+			<td><%=i.getBday() == null ? "" : new SimpleDateFormat("yyyy-MM-dd").format(i.getBday())%></td>
 			<td><a href="update?id=<%=i.getId()%>">Muuda</a> | <a href="delete?id=<%=i.getId()%>">Kustuta!</a></td>
 		</tr>
 		<%

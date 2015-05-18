@@ -1,7 +1,9 @@
 package ee.ttu.idu0020.inimene;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.log4j.Logger;
 
 public class InimeneValidator {
@@ -29,8 +31,8 @@ public class InimeneValidator {
 			errors.put("inimene_number", "järjekorra arv on liiga suur peab olema alla 1000");
 
 
-		if (i.getBday() != null && i.getBday().compareTo(new SimpleDateFormat("yyyy-MM-d")))
-			errors.put("inimene_bDay", "kuupäev on vales formaadis, peaks olema YYYY-MM-DD (näiteks 2012-10-19)");
+		if (i.getBday() == null )
+			errors.put("inimene_bday", "kuupäev on vales formaadis, peaks olema YYYY-MM-DD (näiteks 2012-10-19)");
 
 
 		if (!errors.isEmpty()) {

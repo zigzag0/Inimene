@@ -1,6 +1,7 @@
 package ee.ttu.idu0020.inimene.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class InimeneDAO {
 	public List<Inimene> getInimesed() throws SQLException {
 		List<Inimene> inimesed = new ArrayList<Inimene>();
 		PreparedStatement pst = con
-				.prepareStatement("SELECT * FROM inimesed_v2 ORDER BY inimesed_v2.inimene_number"); // SELECT TABELI NIMI
+				.prepareStatement("SELECT * FROM inimesed_v2 ORDER BY inimene_number"); // SELECT TABELI NIMI
 //				.prepareStatement("SELECT * FROM inimesed_v2 where id = ? ORDER BY inimene_number"); //MySQL
 		try {
 			ResultSet rs = pst.executeQuery();
@@ -47,7 +48,7 @@ public class InimeneDAO {
 
 	public Inimene getInimene(long id) throws SQLException {
 		PreparedStatement pst = con
-				.prepareStatement("SELECT * FROM inimesed_v2 ORDER BY inimesed_v2.inimene_number");
+				.prepareStatement("SELECT * FROM inimesed_v2 where id = ? ORDER BY inimesed_v2.inimene_number");
 //				.prepareStatement("SELECT * FROM inimesed_v2 where id = ? ORDER BY inimene_number"); //MySQL
 		pst.setLong(1, id);
 
@@ -74,21 +75,21 @@ public class InimeneDAO {
 	// Andmete lisamine tabelisse.
 	public void addInimene(Inimene i) throws SQLException {
 		PreparedStatement pst = con
-				.prepareStatement("INSERT INTO inimesed_v2( inimene_number, inimene_name1,inimene_name2) VALUES (?, ?, ?) returning id");
+				.prepareStatement("INSERT INTO inimesed_v2( inimene_number, inimene_name1,inimene_name2,inimene_bday) VALUES (?, ?, ?, ?) returning id");
 //				.prepareStatement("INSERT INTO inimesed_v2 (inimene_number, inimene_name1, inimene_name2, inimene_bday) values (?, ?, ?, ?) returning id"); //MySQL
 		try {
-			pst.setString(1, i.getName1());
-			pst.setString(2, i.getName2());
+			pst.setString(2, i.getName1());
+			pst.setString(3, i.getName2());
 			if (i.getNumber() == null) {
-				pst.setNull(3, Types.INTEGER);
+				pst.setNull(1, Types.INTEGER);
 			} else {
-				pst.setInt(3, i.getNumber());
+				pst.setInt(1, i.getNumber());
 			}
 
 			if (i.getBday() == null) {
 				pst.setNull(4, Types.DATE);
 			} else {
-				pst.setDate(4, i.getBday());
+				pst.setDate(4, new Date(i.getBday().getTime()));
 			}
 
 			ResultSet rs = pst.executeQuery();
@@ -103,20 +104,20 @@ public class InimeneDAO {
 
 	public void updateInimene(Inimene i) throws SQLException {
 		PreparedStatement pst = con
-				.prepareStatement("UPDATE inimesed_v2 SET inimene_number = ?, inimene_name1 = ?, inimene_name2 = ?, inimene_bday = ?, where id = ?");
-//				.prepareStatement("UPDATE inimesed_v2 SET inimene_number = ?, inimene_name1 = ?, inimene_name2 = ?, inimene_bday = ?, where id = ?"); //MySQL
+				.prepareStatement("UPDATE inimesed_v2 SET inimene_number = ?, inimene_name1 = ?, inimene_name2 = ?, inimene_bday = ? where id = ?");
+//				.prepareStatement("UPDATE inimesed_v2 SET inimene_number = ?, inimene_name1 = ?, inimene_name2 = ?, inimene_bday = ? where id = ?"); //MySQL
 		try {
-			pst.setString(1, i.getName1());
-			pst.setString(2, i.getName2());
+			pst.setString(2, i.getName1());
+			pst.setString(3, i.getName2());
 			if (i.getNumber() == null) {
-				pst.setNull(3, Types.INTEGER);
+				pst.setNull(1, Types.INTEGER);
 			} else {
-				pst.setInt(3, i.getNumber());
+				pst.setInt(1, i.getNumber());
 			}
 			if (i.getBday() == null) {
 				pst.setNull(4, Types.DATE);
 			} else {
-				pst.setDate(4, i.getBday());
+				pst.setDate(4, new Date(i.getBday().getTime()));
 			}
 
 			pst.setLong(5, i.getId());

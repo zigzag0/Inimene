@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page import="ee.ttu.idu0020.inimene.Inimene"%>
 <jsp:useBean id="inimene" scope="request"
 	type="ee.ttu.idu0020.inimene.Inimene" />
@@ -73,7 +74,8 @@ a:hover {
 			<tr>
 				<td>Sünniaeg:</td>
 				<td><input type="text" name="inimene_bday"
-					value="<%=inimene.getBday() == null ? "" : inimene.getBday()%>" />
+					value="<%=inimene.getBday() == null ? "" : new SimpleDateFormat(
+					"yyyy-MM-dd").format(inimene.getBday())%>" />
 					<%
 						if (errors.containsKey("inimene_bday")) {
 					%><font color="red"><%=errors.get("inimene_bday")%></font> <%
